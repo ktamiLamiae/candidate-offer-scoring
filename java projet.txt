@@ -1,4 +1,0 @@
-Titre du Projet : Application de Matching Compétences-Opportunités avec IA
-Description : Plateforme qui analyse les CV et profils professionnels via NLP, extrait compétences et expériences, puis recommande opportunités d'emploi, missions freelance ou formations adaptées en temps réel.
-Technologies Suggérées : Spring Boot, React, Python (NLP, spaCy), Elasticsearch
-Thèmes Principaux : Gestion des compétences, Gestion des carrières
