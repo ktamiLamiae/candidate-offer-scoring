@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database Connection Settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/iamco_db</property>
+        <property name="connection.username">iamco</property>
+        <property name="connection.password">iamcopass</property>
+
+        <!-- JDBC Connection Pool -->
+        <property name="connection.pool_size">10</property>
+
+        <!-- SQL Dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping resource="com/iamco/model/User.hbm.xml"/>
+        <mapping resource="com/iamco/model/Skill.hbm.xml"/>
+        <mapping resource="com/iamco/model/Profil.hbm.xml"/>
+        <mapping resource="com/iamco/model/Offre.hbm.xml"/>
+        <mapping resource="com/iamco/model/Candidature.hbm.xml"/>
+        <mapping resource="com/iamco/model/MatchResult.hbm.xml"/>
+        <mapping resource="com/iamco/model/ProfilSkill.hbm.xml"/>
+        <mapping resource="com/iamco/model/OffreSkill.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

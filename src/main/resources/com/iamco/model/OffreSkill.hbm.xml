@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.iamco.model">
+    <class name="OffreSkill" table="offre_skills">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+
+        <many-to-one name="offre" column="offre_id" class="Offre" not-null="true"/>
+        <many-to-one name="skill" column="skill_id" class="Skill" not-null="true"/>
+        
+        <property name="niveauRequis" column="niveau_requis"/>
+        <property name="obligatoire" column="obligatoire"/>
+    </class>
+</hibernate-mapping>
