@@ -14,7 +14,7 @@
         <property name="salaire" column="salaire"/>
         <property name="localisation" column="localisation"/>
         <property name="active" column="active"/>
-        <property name="datePublication" column="date_publication" type="date"/>
+        <property name="datePublication" column="date_publication"/>
 
         <many-to-one name="recruteur" column="recruteur_id" class="Recruteur" not-null="true"/>
 

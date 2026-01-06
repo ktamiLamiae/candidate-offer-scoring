@@ -8,7 +8,6 @@ public class Profil {
     private Long id;
     private String titre;
     private String description;
-    private String cvPath;
     private Integer experienceAnnees;
     private LocalDateTime updatedAt;
     private List<ProfilSkill> skills = new ArrayList<>();
@@ -16,10 +15,9 @@ public class Profil {
     public Profil() {
     }
 
-    public Profil(String titre, String description, String cvPath, Integer experienceAnnees) {
+    public Profil(String titre, String description, Integer experienceAnnees) {
         this.titre = titre;
         this.description = description;
-        this.cvPath = cvPath;
         this.experienceAnnees = experienceAnnees;
     }
 
@@ -49,14 +47,6 @@ public class Profil {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCvPath() {
-        return cvPath;
-    }
-
-    public void setCvPath(String cvPath) {
-        this.cvPath = cvPath;
     }
 
     public Integer getExperienceAnnees() {
