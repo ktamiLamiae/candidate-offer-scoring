@@ -14,7 +14,7 @@
         <property name="nom" column="nom"/>
         <property name="prenom" column="prenom"/>
         <property name="telephone" column="telephone"/>
-        <property name="createdAt" column="created_at" type="timestamp"/>
+        <property name="createdAt" column="created_at"/>
 
         <joined-subclass name="Candidat" table="candidats">
             <key column="id"/>

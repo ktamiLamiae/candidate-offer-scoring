@@ -1,5 +1,8 @@
 package com.iamco.dao;
 
+import com.iamco.exception.DataAccessException;
+import com.iamco.exception.ResourceNotFoundException;
+
 import com.iamco.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -23,7 +26,7 @@ public class GenericDAO<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            throw new DataAccessException("Error saving entity: " + entity, e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -42,7 +45,7 @@ public class GenericDAO<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            throw new DataAccessException("Error updating entity: " + entity, e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -54,6 +57,14 @@ public class GenericDAO<T> {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(type, id);
         }
+    }
+
+    public T getOrThrow(Long id) {
+        T entity = findById(id);
+        if (entity == null) {
+            throw new ResourceNotFoundException(type.getSimpleName() + " with ID " + id + " not found");
+        }
+        return entity;
     }
 
     public List<T> findAll() {
