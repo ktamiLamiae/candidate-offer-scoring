@@ -40,13 +40,25 @@ Le cœur du système réside dans le `MatchingService`. Le calcul du score pour 
 2. **Niveau de maîtrise** : Si le niveau du candidat est supérieur ou égal au niveau requis, il obtient les **50%** restants.
 3. **Score Global** : La somme des points obtenus est divisée par le nombre total de compétences requises pour obtenir un pourcentage de 0 à 100%.
 
-## 6. Configuration de la Persistance
-La persistance est gérée via Hibernate avec des fichiers de mapping XML situés dans `src/main/resources/com/iamco/model/`. 
+## 6. Interfaces Graphiques (IHM)
+L'interface utilisateur a été développée avec **JavaFX 17** pour offrir une expérience fluide et moderne :
+
+- **Layout Sidebar Moderne** : Remplacement de l'entête classique par une barre de navigation latérale (Sidebar) pour une navigation plus intuitive.
+- **JavaFX & FXML** : Les interfaces sont définies en FXML, séparant ainsi le design de la logique métier (contrôleurs).
+- **Design System Custom** : Utilisation d'un fichier `style.css` pour unifier l'esthétique (couleurs sombres, dégradés, cartes modernes).
+- **Écrans Principaux** :
+    - **Login** : Authentification et redirection selon le rôle (Candidat ou Recruteur).
+    - **Tableau de Bord Recruteur** : Analyse de matching en temps réel et gestion des offres.
+    - **Tableau de Bord Candidat** : Consultation des meilleures offres et édition du profil technique.
+    - **Édition de Profil** : Gestion dynamique des compétences et des années d'expérience.
+
+## 7. Configuration de la Persistance
+La persistance est gérée via Hibernate avec des fichiers de maadmin@iamco.compping XML situés dans `src/main/resources/com/iamco/model/`. 
 La configuration principale (`hibernate.cfg.xml`) définit la connexion à la base de données PostgreSQL :
 - **URL** : `jdbc:postgresql://localhost:5433/iamcodb`
 - **Dialect** : `org.hibernate.dialect.PostgreSQLDialect`
 
-## 7. Déploiement
+## 8. Déploiement
 Le projet utilise Docker pour simplifier la mise en place de l'environnement :
 - `docker-compose.yml` : Définit le service `db` (PostgreSQL).
 - `init.sql` : Script d'initialisation créant les tables et les contraintes d'intégrité.

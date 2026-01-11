@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="650.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iamco.gui.OffreCRUDController">
+   <left>
+      <VBox styleClass="sidebar">
+         <children>
+            <Label styleClass="sidebar-logo" text="IAMC-O" />
+            <Button mnemonicParsing="false" onAction="#handleBack" styleClass="nav-button" text="🏠 Dashboard" />
+            <Button mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="💼 Gestion Offres" />
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleLogout" styleClass="nav-button" text="🚪 Déconnexion" style="-fx-text-fill: #e74c3c;" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox spacing="20.0" style="-fx-background-color: #f4f7f6;">
+         <children>
+            <HBox alignment="CENTER_LEFT" styleClass="header-bar" style="-fx-background-color: white; -fx-effect: none; -fx-border-color: #dcdde1; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Label styleClass="dash-title" text="Gestion des Offres d'Emploi" style="-fx-font-size: 18px;" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+            </HBox>
+            
+            <HBox spacing="20.0" VBox.vgrow="ALWAYS" style="-fx-padding: 20;">
+                <children>
+                    <VBox spacing="10.0" HBox.hgrow="ALWAYS" styleClass="dash-card">
+                        <children>
+                            <Label styleClass="dash-title" text="Liste des Offres" />
+                            <TableView fx:id="offreTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                                    <TableColumn fx:id="colTitre" prefWidth="200.0" text="Titre" />
+                                    <TableColumn fx:id="colSalaire" prefWidth="100.0" text="Salaire" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </VBox>
+
+                    <VBox prefWidth="320.0" spacing="15.0" styleClass="dash-card">
+                        <children>
+                            <Label styleClass="dash-title" text="Détails de l'Offre" />
+                            <VBox spacing="5.0">
+                                <children>
+                                    <Label text="Titre :" />
+                                    <TextField fx:id="titreField" promptText="Ex: Ingénieur Java" />
+                                </children>
+                            </VBox>
+                            <VBox spacing="5.0">
+                                <children>
+                                    <Label text="Salaire :" />
+                                    <TextField fx:id="salaireField" promptText="Ex: 15000" />
+                                </children>
+                            </VBox>
+                            <VBox spacing="5.0" VBox.vgrow="ALWAYS">
+                                <children>
+                                    <Label text="Compétences (Skills) :" />
+                                    <ListView fx:id="skillListView" prefHeight="150.0" />
+                                    <Label style="-fx-font-size: 10px; -fx-text-fill: #7f8c8d;" text="Maintenir Ctrl pour multi-sélection" />
+                                </children>
+                            </VBox>
+                            <Separator />
+                            <VBox spacing="10.0">
+                                <children>
+                                    <Button maxWidth="Infinity" onAction="#handleSave" styleClass="button-success" text="Enregistrer New" />
+                                    <Button maxWidth="Infinity" onAction="#handleUpdate" styleClass="button-primary" text="Mettre à jour" />
+                                    <Button maxWidth="Infinity" onAction="#handleDelete" styleClass="button-danger" text="Supprimer" />
+                                    <Button maxWidth="Infinity" onAction="#handleClear" text="Vider" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

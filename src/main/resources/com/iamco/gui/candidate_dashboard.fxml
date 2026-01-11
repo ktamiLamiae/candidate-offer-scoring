@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500.0" prefWidth="850.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iamco.gui.CandidateController">
+   <left>
+      <VBox styleClass="sidebar">
+         <children>
+            <Label styleClass="sidebar-logo" text="IAMC-O" />
+            <VBox spacing="5.0" style="-fx-padding: 0 0 20 0;">
+               <children>
+                  <Label fx:id="welcomeLabel" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;" text="Bienvenue , Candidat" />
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="🔍 Mes Matches" />
+            <Button mnemonicParsing="false" onAction="#handleEditProfile" styleClass="nav-button" text="👤 Mon Profil" />
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleLogout" styleClass="nav-button" text="🚪 Déconnexion" style="-fx-text-fill: #e74c3c;" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox>
+         <children>
+            <HBox alignment="CENTER_LEFT" styleClass="header-bar" style="-fx-background-color: white; -fx-effect: none; -fx-border-color: #dcdde1; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Label styleClass="dash-title" text="Offres Recommandées" style="-fx-font-size: 18px;" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+            </HBox>
+            <AnchorPane VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-padding: 20;">
+               <children>
+                  <VBox spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" styleClass="dash-card">
+                     <children>
+                        <Label styleClass="dash-title" text="Offres correspondantes à vos compétences" />
+                        <ListView fx:id="myMatchesListView" VBox.vgrow="ALWAYS" style="-fx-font-size: 14px;" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

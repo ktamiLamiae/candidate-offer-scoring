@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iamco.gui.ProfileEditController">
+   <left>
+      <VBox styleClass="sidebar">
+         <children>
+            <Label styleClass="sidebar-logo" text="IAMC-O" />
+            <VBox spacing="5.0" style="-fx-padding: 0 0 20 0;">
+               <children>
+                  <Label fx:id="welcomeLabel" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;" text="Bienvenue , Candidat" />
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" onAction="#handleBack" styleClass="nav-button" text="🔍 Mes Matches" />
+            <Button mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="👤 Mon Profil" />
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleLogout" styleClass="nav-button" text="🚪 Déconnexion" style="-fx-text-fill: #e74c3c;" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox spacing="20.0" style="-fx-background-color: #f4f7f6;">
+         <children>
+            <HBox alignment="CENTER_LEFT" styleClass="header-bar" style="-fx-background-color: white; -fx-effect: none; -fx-border-color: #dcdde1; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Label styleClass="dash-title" text="Mon Profil &amp; Compétences" style="-fx-font-size: 18px;" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+            </HBox>
+            
+            <HBox spacing="15.0" VBox.vgrow="ALWAYS" style="-fx-padding: 20;">
+                <children>
+                    <VBox spacing="8.0" HBox.hgrow="ALWAYS" styleClass="dash-card">
+                        <children>
+                            <Label text="Mes Skills Actuels" styleClass="dash-title" />
+                            <TableView fx:id="skillTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colSkill" prefWidth="200.0" text="Compétence" />
+                                    <TableColumn fx:id="colLevel" prefWidth="80.0" text="Niveau" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </VBox>
+
+                    <VBox spacing="12.0" prefWidth="300.0" styleClass="dash-card">
+                        <children>
+                            <Label text="Détails Compétence" styleClass="dash-title" />
+                            <VBox spacing="5.0">
+                                <children>
+                                    <Label text="Skill :" />
+                                    <ComboBox fx:id="skillComboBox" maxWidth="Infinity" promptText="Choisir..." />
+                                </children>
+                            </VBox>
+                            <VBox spacing="5.0">
+                                <children>
+                                    <Label text="Niveau (1-5) :" />
+                                    <ComboBox fx:id="levelComboBox" maxWidth="Infinity" />
+                                </children>
+                            </VBox>
+                            <Region VBox.vgrow="ALWAYS" />
+                            <VBox spacing="10.0">
+                                <children>
+                                    <Button maxWidth="Infinity" onAction="#handleSave" styleClass="button-success" text="Enregistrer" />
+                                    <Button maxWidth="Infinity" onAction="#handleDelete" styleClass="button-danger" text="Supprimer" />
+                                    <Button maxWidth="Infinity" onAction="#handleClear" text="Vider" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
