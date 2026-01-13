@@ -1,3 +1,7 @@
+# Image :
+
+<img src="file.jpg">
+
 # Rapport de Projet : IAMC-O (Identity and Matching Candidate - Opportunity)
 
 Ce document présente une vue d'ensemble technique du projet **IAMC-O**, une application de scoring et de matching entre candidats et offres d'emploi basée sur les compétences.
