@@ -20,7 +20,7 @@ Le projet est construit sur des technologies Java modernes et robustes :
 ## 3. Architecture du Système
 Le projet suit une architecture multicouche pour une meilleure séparation des préoccupations :
 
-- **Modèle (POJO)** : Représentation des entités métier.
+- **Modèle** : Représentation des entités métier.
 - **DAO (Data Access Object)** : Interface de communication avec la base de données.
 - **Service** : Contient la logique métier, notamment l'algorithme de matching.
 - **Util** : Classes utilitaires comme `HibernateUtil` pour la gestion de la `SessionFactory`.
